@@ -12,19 +12,17 @@
 // export default App;
 
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement } from './redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { addNumber, subNumber } from '../actions/action';
 
 function App() {
-  const counter = useSelector((state) => state.counter);
-  const dispatch = useDispatch();
-
+  const counter = useSelector((state)=>state.counter);
+  const dispatch = useDispatch()
   return (
     <div id='main'>
-      <h1>Counter App</h1>
-      <button onClick={() => dispatch(increment())}>+</button>
-      <span data-testid='counter'>{counter}</span>
-      <button onClick={() => dispatch(decrement())}>-</button>
+        <div data-testid='counter'>{counter}</div>
+        <button onClick={()=>dispatch(addNumber())}>+</button>
+        <button onClick={()=>dispatch(subNumber())}>-</button>
     </div>
   );
 }
